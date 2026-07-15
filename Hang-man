@@ -1,0 +1,57 @@
+import random
+play = "yes"
+while play == "yes":
+    my_words = [
+    "apple", "tiger", "planet", "school", "python",
+    "banana", "orange", "grapes", "mango", "papaya",
+    "computer", "keyboard", "monitor", "printer", "laptop",
+    "teacher", "student", "library", "science", "english",
+    "football", "cricket", "tennis", "volleyball", "badminton",
+    "elephant", "giraffe", "dolphin", "penguin", "rabbit",
+    "mountain", "river", "forest", "desert", "ocean",
+    "camera", "mobile", "internet", "browser", "charger",
+    "holiday", "morning", "evening", "weekend", "birthday",
+    "friend", "family", "brother", "sister", "parents",
+    "village", "country", "nepal", "pokhara", "kathmandu",
+    "ARGENTINA","AUSTRALIA","BRAZIL","CANADA","CHINA","EGYPT",
+    "FRANCE","GERMANY","INDIA","ITALY","JAPAN","MEXICO","NETHERLANDS"
+    ,"RUSSIA","SAUDI ARABIA","SOUTH AFRICA","SPAIN","SWEDEN",
+    "SWITZERLAND","TURKEY","UNITED KINGDOM","UNITED STATES"]
+    answer = random.choice(my_words)
+    word_show = ["_"] * len(answer)
+    life = 3
+    used = []
+    print("\nHangman")
+    print("You have 3 chances")
+    while life > 0:
+        print("\nWord:", " ".join(word_show))
+        print("Life left:", life)
+        letter = input("Type a letter: ").lower()
+        if letter in used:
+            print("Already used")
+            continue
+        used.append(letter)
+        if letter in answer:
+            for i in range(len(answer)):
+                if answer[i] == letter:
+                    word_show[i] = letter
+            print("Nice!")
+        else:
+            life -= 1
+            print("Not correct")
+        if "_" not in word_show:
+            print("You won")
+            print("Word:", answer)
+            break
+    if "_" in word_show:
+        print("You lost")
+        print("Word was:", answer)
+    play = input("\nPlay again? yes/no: ").lower()
+
+
+
+
+
+
+
+    
